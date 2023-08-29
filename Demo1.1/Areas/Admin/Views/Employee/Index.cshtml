@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Demo1._1.Areas.Admin.Models.Employee>
+@{
+}
+
+
+<h2>Employee List</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                EmployeeId
+            </th>
+            <th>
+                EmployeeName
+            </th>
+            <th>
+                EmployeeDOB
+            </th>
+            <th>
+                EmployeeAddress
+            </th>
+            <th>
+                EmployeePhone
+            </th>
+            <th>
+                EmployeeEmail
+            </th>
+            <th>
+                EmployeeImage
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.EmployeeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.EmployeeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.EmployeeDOB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.EmployeeAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.EmployeePhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.EmployeeEmail)
+                </td>
+                <td>
+                    @if (!string.IsNullOrEmpty(employee.EmployeeImage))
+                    {
+                        <img src="~/uploads/@employee.EmployeeImage" alt="Employee Image" width="50" height="50" />
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@employee.EmployeeId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@employee.EmployeeId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@employee.EmployeeId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

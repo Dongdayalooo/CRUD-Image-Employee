@@ -1,0 +1,63 @@
+﻿@model Demo1._1.Areas.Admin.Models.Employee
+@{
+}
+
+
+<div>
+    <h4>Are you sure you want to delete this employee?</h4>
+    <h4>@Model.EmployeeName</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeDOB)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeDOB)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeePhone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmployeePhone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeImage)
+        </dt>
+        <dd>
+            @if (!string.IsNullOrEmpty(Model.EmployeeImage))
+            {
+                <img src="~/uploads/@Model.EmployeeImage" alt="Employee Image" width="100" height="100" />
+            }
+        </dd>
+    </dl>
+
+    <div>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>
